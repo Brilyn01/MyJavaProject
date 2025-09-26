@@ -1,11 +1,11 @@
 import java.util.Scanner;
 import java.util.StringJoiner;
 
-public class Main {
-    public static void main(String[] args) {
-        String sentence;
-        System.out.println("Enter Your Sentence .");
-        Scanner scanner = new Scanner(System.in);
+public class Main {    public static void main(String[] args) {
+    String sentence;
+    System.out.println("Enter Your Sentence .");
+    Scanner scanner =
+new Scanner(System.in);
          sentence = scanner.nextLine();
 
 
