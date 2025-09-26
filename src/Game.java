@@ -65,15 +65,10 @@ public class Game {
         scanner.nextLine();
 
         Random rand = new Random();
-
-
-
         monster_health = rand.nextInt(21) + 20;
 
         while (monster_health > 0 && Health > 0) {
-            System.out.println(MonsterName()+"'s"+ " Health: "+monster_health +"\n1.ATTACK\n2.RUN");
             String select = scanner.nextLine();
-            if (select.equals("nuski") || select.equals("rotwithmy9mm") || select.equals("vonski") || select.equals("display")) {
                 Cheats = select.toLowerCase();
                 CheatCodes();
                 continue;
@@ -94,16 +89,13 @@ public class Game {
                     monsterDamage = 5 + rand.nextInt(8);
                     if (isUntouchable) {
                         System.out.println("You are UNTOUCHABLE! " + MonsterName() + " cannot harm you.");
-                        System.out.println("You hit  " + MonsterName()+ " for " + damage + " damage!");
                     }else if (active_effect.contains("shield")) {
                         System.out.println("Your shield blocked the attack!");
                         active_effect.remove("shield");
                     } else {
                         Health -= monsterDamage;
-                        System.out.println("You hit  " + MonsterName()+ " for " + damage + " damage!");
 
 
-                        System.out.println(MonsterName()+" hits you for " + monsterDamage + "! Your health: " + Health1());
                     }
                 }
             } else if (select.equals("2") ) {
@@ -114,13 +106,10 @@ public class Game {
 
         if (Health <= 0) {
             System.out.println("GAME OVER!");
-            System.out.println("MISSION FAILED");
-            displayStatus();
         } else {
             int reward = rand.nextInt(21) + 10;
             Gold += reward;
             System.out.println("You defeated " + MonsterName() + " and earned " + reward + " gold!");
-            displayStatus();
         }
     }
 
@@ -150,7 +139,6 @@ public class Game {
             case "potion":
                 Health += 20;
                 inventory.remove("potion");
-                System.out.println("You drink the potion. +20 HP! Current health: " + Health1());
                 break;
             case "shield":
                 active_effect.add("shield");
@@ -179,17 +167,8 @@ public class Game {
             System.out.println("Cheat Code Activated: Untouchable! No monster can harm you.");
 
 
-        }else if(Cheats.equals("display")) {
-            displayStatus();}
 
 
-          }
-    static int Health1() {
-        if (Health > 0) {
-            return Health;
-        } else {
-            return Health=0;
-        }
     }
 
     static String MonsterName() {
@@ -205,7 +184,6 @@ public class Game {
     static void displayStatus() {
         System.out.println("\n== STATUS ==");
         System.out.println("Profile name:"+Gametag);
-        System.out.println("Health: " + Health1());
         System.out.println("Gold: " + Gold);
         System.out.println("Inventory: " + inventory);
         System.out.println("Active Effects: " + active_effect);
